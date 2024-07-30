@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import minimist from 'minimist';
 import parser from './interpreter.mjs';
 import readline from 'node:readline';
