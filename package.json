@@ -3,7 +3,9 @@
   "description": "$ pjs [options] code",
   "version": "1.0.4",
   "main": "main.mjs",
-  "bin": "main.mjs",
+  "bin": {
+    "pjs": "main.mjs"
+  },
   "devDependencies": {},
   "dependencies": {
     "minimist": "^1.2.8"
