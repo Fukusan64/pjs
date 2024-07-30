@@ -4,7 +4,7 @@
   "version": "1.0.6",
   "main": "main.mjs",
   "bin": {
-    "pjs": "main.mjs"
+    "pjs": "./main.mjs"
   },
   "devDependencies": {},
   "dependencies": {
