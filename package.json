@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "minimist": "^1.2.8"
+  },
+  "name": "@fukusan64/pjs",
+  "description": "```sh $ pjs [options] code ```",
+  "version": "1.0.0",
+  "main": "main.mjs",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
