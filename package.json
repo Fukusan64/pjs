@@ -1,15 +1,23 @@
 {
+  "name": "@fukusan64/pjs",
+  "description": "$ pjs [options] code",
+  "version": "1.0.0",
+  "main": "main.mjs",
+  "bin": "main.mjs",
+  "devDependencies": {},
   "dependencies": {
     "minimist": "^1.2.8"
   },
-  "name": "@fukusan64/pjs",
-  "description": "```sh $ pjs [options] code ```",
-  "version": "1.0.0",
-  "main": "main.mjs",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fukusan64/pjs.git"
+  },
+  "author": "Fukusan64",
+  "bugs": {
+    "url": "https://github.com/Fukusan64/pjs/issues"
+  },
   "license": "ISC"
 }
