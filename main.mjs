@@ -2,6 +2,9 @@
 import minimist from 'minimist';
 import parser from './interpreter.mjs';
 import readline from 'node:readline';
+import fs from 'node:fs'
+import Path from 'node:path'
+
 const argv = minimist(process.argv.slice(2));
 const IS_ALL_READ_MODE = Object.keys(argv).some(v => v === 'a');
 
@@ -16,6 +19,7 @@ const command = argv._[0] ?? (argv.a === true ? undefined : argv.a);
 if (command === undefined) {
   const help = 
     [
+      `Version: ${JSON.parse(fs.readFileSync(Path.join(import.meta.dirname, 'package.json'))).version}`,
       'pjs [options] code',
       '',
       'options',
