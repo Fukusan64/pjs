@@ -1,5 +1,4 @@
-import * as utils from './utils.mjs';
-Object.assign(globalThis, utils);
+Object.assign(globalThis, (await import('./utils.mjs')));
 
 export default (
   code,
