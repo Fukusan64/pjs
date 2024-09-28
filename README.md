@@ -17,6 +17,8 @@ $ ls | pjs "@.length + ':' + @ |> @.split(':')"
 ```
 
 ## utils
+* [TOPIC_REFERENCE]line
+  * Number of rows currently being processed (0 indexed). " -a" option is specified, the number of input rows is returned.
 * p
     * `const p = (data) => {console.log(data);return data;}`
 * e
