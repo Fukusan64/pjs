@@ -3,4 +3,4 @@ export const e = _ => {console.error(_);return _;};
 
 export const exit = Symbol('exit code');
 
-export const vGlobal = {};
+export const G = {};
