@@ -18,9 +18,9 @@ const PIPE_OPERATOR = argv.d || DEFAULT_PIPE_OPERATOR;
 const DEFAULT_TOPIC_REFERENCE = '@';
 const TOPIC_REFERENCE = argv.t || DEFAULT_TOPIC_REFERENCE;
 
-const command = argv._[0] ?? (argv.a === true ? undefined : argv.a);
+const command = argv._[0];
 
-if (command === undefined) {
+if (!command) {
   const help = 
     [
       `Version: ${JSON.parse(fs.readFileSync(Path.join(import.meta.dirname, 'package.json'))).version}`,
