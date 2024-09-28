@@ -15,3 +15,13 @@ $ pjs [options] code
 ```sh
 $ ls | pjs "@.length + ':' + @ |> @.split(':')"
 ```
+
+## utils
+* p
+    * `const p = (data) => {console.log(data);return data;}`
+* e
+    * `const e = (data) => {console.error(data);return data;}`
+* exit
+    * When this value is passed to the pipe operator, the currently running process stops
+* G
+    * Global object
