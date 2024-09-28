@@ -1,4 +1,5 @@
-import runtime, {exitCode} from './runtime.mjs';
+import runtime from './runtime.mjs';
+import {exit} from './utils.mjs';
 const parser = (input, delimiter, topicReference) => {
   return input
     .split(delimiter)
@@ -30,7 +31,7 @@ export default (input, delimiter, topicReference) => {
 
     for (const c of code) {
       data = await runner(c, data, topicReference);
-      if (data === exitCode) return;
+      if (data === exit) return;
     }
     
     console.log(data);
