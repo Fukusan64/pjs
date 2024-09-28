@@ -42,11 +42,17 @@ const processing = parser(
   TOPIC_REFERENCE ?? DEFAULT_TOPIC_REFERENCE,
 );
 
+const rl = readline.createInterface({ input: process.stdin });
+let input = '', count = 0;
 if (IS_ALL_READ_MODE) {
-  let input = '';
-  for await (const chunk of process.stdin) input += chunk;
-  processing(input);
+  for await (const line of rl) {
+    input += line;
+    count++;
+  };
+  processing(input, count);
 } else {
-  const rl = readline.createInterface({ input: process.stdin });
-  for await (const line of rl) await processing(line);
+  for await (const line of rl) {
+    await processing(line, count);
+    count++;
+  }
 }

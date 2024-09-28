@@ -7,9 +7,12 @@ const parser = (input, delimiter, topicReference) => {
   ;
 };
 
-const runner = (code, data, topicReference) => {
+const runner = (code, lineCount, data, topicReference) => {
   try {
-    return runtime(code, {__internal_topic_reference__: data});
+    return runtime(code, {
+      __internal_topic_reference__: data,
+      __internal_topic_reference__line: lineCount
+    });
   } catch (e) {
     throw new Error(`${
       e
@@ -25,12 +28,12 @@ const runner = (code, data, topicReference) => {
 };
 
 export default (input, delimiter, topicReference) => {
-  return async inputData => {
+  return async (inputData, lineCount) => {
     const code = parser(input, delimiter, topicReference);
     let data = inputData;
 
     for (const c of code) {
-      data = await runner(c, data, topicReference);
+      data = await runner(c, lineCount, data, topicReference);
       if (data === exit) return;
     }
     
