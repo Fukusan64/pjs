@@ -5,14 +5,18 @@ import readline from 'node:readline';
 import fs from 'node:fs'
 import Path from 'node:path'
 
-const argv = minimist(process.argv.slice(2));
-const IS_ALL_READ_MODE = Object.keys(argv).some(v => v === 'a');
+const argv = minimist(
+  process.argv.slice(2),
+  { string: ['d', 't'], boolean: ['a'] },
+);
 
-const PIPE_OPERATOR = argv.d;
+const IS_ALL_READ_MODE = argv.a
+
 const DEFAULT_PIPE_OPERATOR = '|>';
+const PIPE_OPERATOR = argv.d || DEFAULT_PIPE_OPERATOR;
 
-const TOPIC_REFERENCE = argv.t;
 const DEFAULT_TOPIC_REFERENCE = '@';
+const TOPIC_REFERENCE = argv.t || DEFAULT_TOPIC_REFERENCE;
 
 const command = argv._[0] ?? (argv.a === true ? undefined : argv.a);
 
@@ -50,8 +54,8 @@ if (command === undefined) {
 
 const processing = parser(
   command ?? '',
-  PIPE_OPERATOR ?? DEFAULT_PIPE_OPERATOR,
-  TOPIC_REFERENCE ?? DEFAULT_TOPIC_REFERENCE,
+  PIPE_OPERATOR,
+  TOPIC_REFERENCE,
 );
 
 const rl = readline.createInterface({ input: process.stdin });
