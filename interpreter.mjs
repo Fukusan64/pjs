@@ -28,8 +28,8 @@ const runner = (code, lineCount, data, topicReference) => {
 };
 
 export default (input, delimiter, topicReference) => {
+  const code = parser(input, delimiter, topicReference);
   return async (inputData, lineCount) => {
-    const code = parser(input, delimiter, topicReference);
     let data = inputData;
 
     for (const c of code) {
