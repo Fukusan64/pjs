@@ -66,7 +66,7 @@ const rl = readline.createInterface({ input: process.stdin });
 let input = '', count = 0;
 if (IS_ALL_READ_MODE) {
   for await (const line of rl) {
-    input += line;
+    input += line + '\n';
     count++;
   };
   processing(input, count);
