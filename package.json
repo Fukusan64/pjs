@@ -1,7 +1,7 @@
 {
   "name": "@fukusan64/pjs",
   "description": "$ pjs [options] code",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "main": "main.mjs",
   "bin": {
     "pjs": "./main.mjs"
