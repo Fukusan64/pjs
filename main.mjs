@@ -40,7 +40,7 @@ if (!command) {
       '',
       'utils',
       '    [TOPIC_REFERENCE]line',
-      '        Number of rows currently being processed (0 indexed). " -a" option is specified, the number of input rows is returned.',
+      '        Number of lines currently being processed (0 indexed). If the " -a " option is specified, the number of input lines.',
       '    p',
       '        const p = (data) => {console.log(data);return data;}',
       '    e',
