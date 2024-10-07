@@ -6,10 +6,6 @@
   "bin": {
     "pjs": "./main.mjs"
   },
-  "devDependencies": {},
-  "dependencies": {
-    "minimist": "^1.2.8"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

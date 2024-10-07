@@ -1,24 +1,28 @@
 #! /usr/bin/env node
-import minimist from 'minimist';
+import {parseArgs} from 'node:util';
 import parser from './interpreter.mjs';
 import readline from 'node:readline';
 import fs from 'node:fs'
 import Path from 'node:path'
 
-const argv = minimist(
-  process.argv.slice(2),
-  { string: ['d', 't'], boolean: ['a'] },
-);
+const {values, positionals } = parseArgs({
+  options: {
+    a: { type: 'boolean' },
+    p: { type: 'string' },
+    t: { type: 'string' }
+  },
+  allowPositionals: true,
+});
 
-const IS_ALL_READ_MODE = argv.a
+const IS_ALL_READ_MODE = values.a ?? false;
 
 const DEFAULT_PIPE_OPERATOR = '|>';
-const PIPE_OPERATOR = argv.d || DEFAULT_PIPE_OPERATOR;
+const PIPE_OPERATOR = values.p || DEFAULT_PIPE_OPERATOR;
 
 const DEFAULT_TOPIC_REFERENCE = '@';
-const TOPIC_REFERENCE = argv.t || DEFAULT_TOPIC_REFERENCE;
+const TOPIC_REFERENCE = values.t || DEFAULT_TOPIC_REFERENCE;
 
-const command = argv._[0];
+const command = positionals.join(' ');
 
 if (!command) {
   const help = 
